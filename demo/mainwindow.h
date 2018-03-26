@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QTabWidget>
 #include <QTabBar>
+
+#include <QPushButton>
 #include "tabwidget.h"
 
 namespace Ui {
@@ -23,11 +25,12 @@ public:
     TabWidget * tabWidget ;
     //添加数据成员，当前课程
 
+    QPushButton * change_course;
 
 
 private slots:
    void on_change_course_clicked();//按钮绑定的槽函数
-
+   void on_tabwidget_currentChanged(int);//切换页面的槽函数
 private:
     Ui::MainWindow *ui;
 };

@@ -8,12 +8,14 @@
 class TabWidget : public QTabWidget
 {
 public:
+    QTabBar * tab_bar;
     explicit TabWidget(Qt::Orientation orientation, QWidget * parent = 0)
         : QTabWidget(parent)
     {
-        QTabBar * tabBar = new QTabBar;
-        tabBar->setStyle(new TabStyle(orientation));
-        setTabBar(tabBar);
+         tab_bar= new QTabBar;
+        tab_bar->setStyle(new TabStyle(orientation));
+        tab_bar->setStyleSheet("backgroud:rgb(0,169,157);");
+        setTabBar(tab_bar);
     }
 };
 

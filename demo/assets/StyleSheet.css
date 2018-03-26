@@ -1,6 +1,5 @@
-﻿QTabWidget::tab-bar {
-    alignment: center;
-}
+﻿
+
 
 QTabWidget::pane {
     border: none;
@@ -10,15 +9,13 @@ QTabWidget::pane {
     position: absolute;
     top: -0.8em;
     padding-top: 0.8em;
+    background: rgb(242,242,242);
 }
 
-/*QTabBar*/
-
 QTabBar::tab:right {
-    font: 14px "微软雅黑";
-    width: 25px;
-    height: 80px;
-    color: red;
+    font: 17pt "微软雅黑";
+
+background-color:rgb(0,169,157);
 }
 
 QTabBar::tab:hover{
@@ -26,11 +23,16 @@ QTabBar::tab:hover{
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,  stop:0 #9ba8e0, stop:0.5 #42a8e0, stop:1 #9ba8e0);
 }
 
-QTabBar::tab:hover:!selected{
-    padding-bottom: 0.1em;
-    height: 17px;
+QTabBar::tab:selected{
+    font: bold;
+    color: #00a99d;
+    background-color: #f2f2f2;
 }
 
+QTabBar::tab:hover:!selected{
+/*    padding-right: 4px; 不能用padding*/
+}
+/*
 QTabBar::tab:hover:selected{
     padding-bottom: 0.1em;
     height: 25px;
@@ -46,14 +48,8 @@ QTabBar::tab:disabled:selected{
     color: #afafaf;
 }
 
-QTabBar::tab:selected{
-    font: bold;
-    color: white;
-    height: 23px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,  stop:0 #91c0e0, stop:0.5 #2c8ecf, stop:1 #91c0e0);
-}
 
 QTabBar::tab:!selected{
     margin-top: 5px;
 }
-
+*/
