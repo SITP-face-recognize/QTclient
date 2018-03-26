@@ -9,9 +9,16 @@ Frame_stuManage::Frame_stuManage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Frame_stuManage)
 {
-    ui->setupUi(this);
+     ui->setupUi(this);
      ui->btn_updateFace->setEnabled(false);
      ui->btn_delete->setEnabled(false);
+     ui->addstu_id_LineEdit->setPlaceholderText(QString("num"));
+     ui->addstu_name_LineEdit->setPlaceholderText(QString("name"));
+     ui->tb_id_update->setPlaceholderText(QString("num"));
+     ui->tb_id_delete->setPlaceholderText(QString("num"));
+
+     ui->upstu_name_Label->setVisible(false);
+     ui->destu_name_Label->setVisible(false);
 }
 
 Frame_stuManage::~Frame_stuManage()
@@ -31,22 +38,22 @@ int check_add_input(QString id,QString name)
 
 void Frame_stuManage::on_btn_addFace_clicked()
 {
-    QString id=ui->tb_id_add->text();
-    QString name=ui->tb_name_add->text();
+    QString id=ui->addstu_id_LineEdit->text();
+    QString name=ui->addstu_name_LineEdit->text();
     int flag=check_add_input(id,name);
     if(flag==-1){
         QMessageBox::warning(this,tr("警告"),tr("输入不合法!/或者学号已存在"),QMessageBox::Yes);
-        this->ui->tb_id_add->clear();
-        this->ui->tb_name_add->clear();
-        this->ui->tb_id_add->setFocus();
+        this->ui->addstu_id_LineEdit->clear();
+        this->ui->addstu_name_LineEdit->clear();
+        this->ui->addstu_id_LineEdit->setFocus();
     }
     else{
         Frame_sign *fs=new Frame_sign(FirstTime);
         fs->setParent(ui->stu_add);
         fs->show();
 
-        ui->tb_id_add->clear();
-        ui->tb_name_add->clear();
+        ui->addstu_id_LineEdit->clear();
+        ui->addstu_name_LineEdit->clear();
     }
 }
 
@@ -102,10 +109,12 @@ void Frame_stuManage::on_tb_id_update_textChanged(QString id)
 
     if(flag=="NULL"){//为空或者不合法不存在
         ui->btn_updateFace->setEnabled(false);
+        ui->upstu_name_Label->setVisible(false);
         ui->tip_name_update->clear();
     }
     else{
         ui->btn_updateFace->setEnabled(true);
+        ui->upstu_name_Label->setVisible(true);
         ui->tip_name_update->setText(flag);
     }
 
@@ -118,10 +127,12 @@ void Frame_stuManage::on_tb_id_delete_textChanged(QString id)
 
     if(flag=="NULL"){//为空或者不合法不存在
         ui->btn_delete->setEnabled(false);
+        ui->destu_name_Label->setVisible(false);
         ui->tip_name_delete->clear();
     }
     else{
         ui->btn_delete->setEnabled(true);
+        ui->destu_name_Label->setVisible(true);
         ui->tip_name_delete->setText(flag);
     }
 }

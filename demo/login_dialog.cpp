@@ -1,5 +1,9 @@
 #include "login_dialog.h"
 #include "ui_login_dialog.h"
+#include "httpop.h"
+
+#include <QByteArray>
+#include <QCryptographicHash>
 
 Login_Dialog::Login_Dialog(QWidget *parent) :
     QDialog(parent),
@@ -17,7 +21,19 @@ Login_Dialog::~Login_Dialog()
 int check_teacher_id(QString id,QString password)
 {
     //此处应为查询后台
+    //密码使用md5加密
+    QByteArray btarray;
+    btarray.append(password);
+    QByteArray hash_btarray=QCryptographicHash::hash(btarray,QCryptographicHash::Md5);
+    QString md5_p=hash_btarray.toHex();
 
+    //HttpOp* ho = new HttpOp();
+    //QString strUrl ;//咋写
+
+   //connect(ho,SIGNAL(signal_requestFinished(bool,const QString&)), //http请求结束信号
+            //this,SLOT(slot_requestFinished(bool,const QString&)));
+
+    //ho->sendRequest(strUrl,"post");
 
     //测试用
     if(id==NULL||password==NULL)
@@ -25,6 +41,19 @@ int check_teacher_id(QString id,QString password)
     return 1;
 }
 
+//请求结束
+int Login_Dialog::slot_requestFinished(bool bSuccess, const QString &strResult)
+{
+    if(bSuccess)
+    {
+       // ui->resultEdit->setPlainText(strResult); //纯文本显示
+    }
+    else
+    {
+        //ui->resultEdit->setPlainText(tr("请求失败！"));
+    }
+    return 0;
+}
 
 //点击登录
 void Login_Dialog::on_btn_login_clicked()

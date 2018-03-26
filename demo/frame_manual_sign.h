@@ -21,6 +21,7 @@ private slots:
 
 private:
     Ui::Frame_manual_sign *ui;
+    QString check_stu_existed_for_sign(QString);
 };
 
 #endif // FRAME_MANUAL_SIGN_H

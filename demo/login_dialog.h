@@ -20,6 +20,7 @@ private:
 
 private slots:
     void on_btn_login_clicked();
+    int slot_requestFinished(bool,const QString&);
 };
 
 #endif // LOGIN_DIALOG_H

@@ -70,7 +70,7 @@
      <string>确认进入</string>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -78,6 +78,25 @@
       <width>201</width>
       <height>141</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="noChoiceWarning">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>230</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>请选择课程再确定!</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

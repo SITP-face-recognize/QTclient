@@ -24,6 +24,7 @@ public:
     //添加数据成员，当前课程
 
 
+
 private slots:
    void on_change_course_clicked();//按钮绑定的槽函数
 

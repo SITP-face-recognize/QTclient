@@ -22,6 +22,9 @@ MainWindow::MainWindow(QString id,QWidget *parent) :
     this->tabWidget = new TabWidget(Qt::Horizontal);
     tabWidget->setTabPosition(QTabWidget::West);
 
+    //选择课程
+
+
     Frame_sign * fs=new Frame_sign;
     fs->show();
     tabWidget->addTab(fs, QString(tr("学生签到")));
@@ -53,6 +56,9 @@ MainWindow::MainWindow(QString id,QWidget *parent) :
         course=cc_dialog->course;
         tabWidget->show();
         qDebug()<<course;
+    }
+    else{
+        tabWidget->show();
     }
 
 }

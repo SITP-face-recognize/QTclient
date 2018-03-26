@@ -30,7 +30,8 @@ SOURCES += \
     frame_sign.cpp \
     frame_stumanage.cpp \
     frame_manual_sign.cpp \
-    choosecoursedialog.cpp
+    choosecoursedialog.cpp \
+    httpop.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +43,8 @@ HEADERS += \
     frame_sign.h \
     frame_stumanage.h \
     frame_manual_sign.h \
-    choosecoursedialog.h
+    choosecoursedialog.h \
+    httpop.h
 
 FORMS += \
         mainwindow.ui \
@@ -55,3 +57,5 @@ FORMS += \
 
 RESOURCES += \
     resource.qrc
+
+CONFIG += c++11

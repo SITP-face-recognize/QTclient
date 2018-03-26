@@ -8,6 +8,8 @@ Frame_manual_sign::Frame_manual_sign(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->btn_submit->setEnabled(false);
+    ui->tb_id->setPlaceholderText(QString::fromUtf8("num"));
+    ui->stu_name->setVisible(false);
 }
 
 Frame_manual_sign::~Frame_manual_sign()
@@ -15,14 +17,17 @@ Frame_manual_sign::~Frame_manual_sign()
     delete ui;
 }
 
-QString check_stu_existed_for_sign(QString id)
+QString Frame_manual_sign::check_stu_existed_for_sign(QString id)
 {
     //判断输入是否合法以及学号是否已存在，用于更新和删除学生,返回学生姓名或一个特殊串表示失败
 
     //测试用
     if(id==NULL)
         return QString("NULL");//危险的写法
-    return QString("小泽");
+    else{
+
+        return QString("小泽");
+    }
 }
 
 void Frame_manual_sign::on_btn_submit_clicked()
@@ -32,7 +37,7 @@ void Frame_manual_sign::on_btn_submit_clicked()
 
          QMessageBox msgBox;
       msgBox.setText(id+name);
-      msgBox.setInformativeText("trun up");
+      msgBox.setInformativeText("turn up");
       msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
       msgBox.setDefaultButton(QMessageBox::Ok);
       int ret = msgBox.exec();
@@ -57,10 +62,12 @@ void Frame_manual_sign::on_tb_id_textChanged(QString id)
 
     if(flag=="NULL"){//为空或者不合法不存在
         ui->btn_submit->setEnabled(false);
+        ui->stu_name->setVisible(false);
         ui->tip_name->clear();
     }
     else{
         ui->btn_submit->setEnabled(true);
+        ui->stu_name->setVisible(true);
         ui->tip_name->setText(flag);
     }
 }
