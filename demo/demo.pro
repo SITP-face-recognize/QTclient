@@ -31,7 +31,8 @@ SOURCES += \
     frame_stumanage.cpp \
     frame_manual_sign.cpp \
     choosecoursedialog.cpp \
-    httpop.cpp
+    httpop.cpp \
+    mytitlebar.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,7 +45,8 @@ HEADERS += \
     frame_stumanage.h \
     frame_manual_sign.h \
     choosecoursedialog.h \
-    httpop.h
+    httpop.h \
+    mytitlebar.h
 
 FORMS += \
         mainwindow.ui \

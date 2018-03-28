@@ -16,8 +16,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
+     <x>0</x>
+     <y>10</y>
      <width>461</width>
      <height>351</height>
     </rect>
@@ -45,30 +45,20 @@
        <x>70</x>
        <y>50</y>
        <width>201</width>
-       <height>181</height>
+       <height>211</height>
       </rect>
      </property>
      <widget class="QPushButton" name="btn_addFace">
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>130</y>
+        <y>160</y>
         <width>75</width>
         <height>23</height>
        </rect>
       </property>
       <property name="text">
        <string>+ 添加照片</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="addstu_id_LineEdit">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>70</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="tip">
@@ -84,41 +74,37 @@
        <string>请输入学号和姓名</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="addstu_name_LineEdit">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>100</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="addstu_id_Label">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>70</y>
-        <width>54</width>
-        <height>12</height>
+        <width>181</width>
+        <height>71</height>
        </rect>
       </property>
-      <property name="text">
-       <string>学号:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="addstu_name_Label">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>100</y>
-        <width>54</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>姓名:</string>
-      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="addstu_id_Label">
+         <property name="text">
+          <string>学号:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="addstu_id_LineEdit"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="addstu_name_Label">
+         <property name="text">
+          <string>姓名:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="addstu_name_LineEdit"/>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -133,26 +119,16 @@
     <widget class="QWidget" name="view_update_input" native="true">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>60</y>
+       <x>50</x>
+       <y>50</y>
        <width>221</width>
        <height>201</height>
       </rect>
      </property>
-     <widget class="QLineEdit" name="tb_id_update">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>70</y>
-        <width>113</width>
-        <height>20</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="btn_updateFace">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>90</x>
         <y>120</y>
         <width>75</width>
         <height>31</height>
@@ -162,47 +138,41 @@
        <string>更新照片</string>
       </property>
      </widget>
-     <widget class="QLabel" name="tip_name_update">
+     <widget class="QWidget" name="">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>100</y>
-        <width>71</width>
-        <height>21</height>
+        <x>30</x>
+        <y>50</y>
+        <width>171</width>
+        <height>51</height>
        </rect>
       </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="upstu_id_Label">
-      <property name="geometry">
-       <rect>
-        <x>20</x>
-        <y>70</y>
-        <width>71</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>学号:</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="upstu_name_Label">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>100</y>
-        <width>54</width>
-        <height>12</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>姓名:</string>
-      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="tb_id_update"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="upstu_name_Label">
+         <property name="text">
+          <string>姓名:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="upstu_id_Label">
+         <property name="text">
+          <string>学号:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="tip_name_update">
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </widget>
    </widget>
@@ -214,37 +184,11 @@
     <attribute name="title">
      <string>删除学生</string>
     </attribute>
-    <widget class="QLabel" name="destu_id_Label">
-     <property name="geometry">
-      <rect>
-       <x>80</x>
-       <y>150</y>
-       <width>71</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>学号:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="tb_id_delete">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>150</y>
-       <width>113</width>
-       <height>20</height>
-      </rect>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btn_delete">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>200</y>
+       <x>140</x>
+       <y>170</y>
        <width>75</width>
        <height>31</height>
       </rect>
@@ -253,31 +197,44 @@
       <string>删除</string>
      </property>
     </widget>
-    <widget class="QLabel" name="tip_name_delete">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>177</y>
-       <width>71</width>
-       <height>21</height>
+       <x>80</x>
+       <y>100</y>
+       <width>171</width>
+       <height>51</height>
       </rect>
      </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="destu_name_Label">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>180</y>
-       <width>54</width>
-       <height>12</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>姓名:</string>
-     </property>
+     <layout class="QGridLayout" name="gridLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="destu_id_Label">
+        <property name="text">
+         <string>学号:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="tb_id_delete"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="destu_name_Label">
+        <property name="text">
+         <string>姓名:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="tip_name_delete">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>

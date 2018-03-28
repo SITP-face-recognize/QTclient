@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>315</width>
+    <height>297</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QGroupBox" name="view_choose_course">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>20</y>
+     <x>10</x>
+     <y>10</y>
      <width>281</width>
      <height>251</height>
     </rect>
@@ -28,8 +28,8 @@
    <widget class="QLabel" name="lb_id_pro">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>20</y>
+      <x>120</x>
+      <y>10</y>
       <width>61</width>
       <height>16</height>
      </rect>
@@ -44,8 +44,8 @@
    <widget class="QLabel" name="lb_name_pro">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>40</y>
+      <x>120</x>
+      <y>30</y>
       <width>61</width>
       <height>20</height>
      </rect>

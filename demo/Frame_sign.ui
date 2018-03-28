@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>418</width>
-    <height>311</height>
+    <width>455</width>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,10 @@
   <widget class="QWidget" name="view_sign" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>401</width>
-     <height>291</height>
+     <x>0</x>
+     <y>0</y>
+     <width>451</width>
+     <height>321</height>
     </rect>
    </property>
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -27,67 +27,73 @@
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>261</width>
-      <height>261</height>
+      <width>291</width>
+      <height>281</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="ImageView"/>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QWidget" name="view_first" native="true">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>20</y>
-      <width>101</width>
-      <height>261</height>
+      <x>310</x>
+      <y>181</y>
+      <width>111</width>
+      <height>101</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="RightView">
-     <item>
-      <widget class="QLabel" name="ImageCapture">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QWidget" name="view_first" native="true">
-       <widget class="QPushButton" name="buttonCapture">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>20</y>
-          <width>99</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>捕捉</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="buttonSave">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>50</y>
-          <width>99</width>
-          <height>23</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>保存</string>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonQuit">
-       <property name="text">
-        <string>结束签到</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QPushButton" name="buttonCapture">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>20</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>捕捉</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonSave">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>50</y>
+       <width>111</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>保存</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="ImageCapture">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>20</y>
+      <width>109</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="buttonQuit">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>280</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>结束签到</string>
+    </property>
    </widget>
   </widget>
   <widget class="QWidget" name="view_start" native="true">

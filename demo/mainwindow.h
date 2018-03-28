@@ -7,7 +7,7 @@
 
 #include <QPushButton>
 #include "tabwidget.h"
-
+#include "mytitlebar.h"
 namespace Ui {
 class MainWindow;
 }
@@ -26,13 +26,18 @@ public:
     //添加数据成员，当前课程
 
     QPushButton * change_course;
+    QPushButton * change_login;
 
+    TitleBar* m_titleBar;
 
 private slots:
    void on_change_course_clicked();//按钮绑定的槽函数
+   void on_change_login_clicked();
    void on_tabwidget_currentChanged(int);//切换页面的槽函数
+
 private:
     Ui::MainWindow *ui;
+    void initTitleBar();
 };
 
 #endif // MAINWINDOW_H
