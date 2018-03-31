@@ -49,11 +49,12 @@ void HttpOp::slot_requestFinished()
     int nHttpCode = m_pNetworkReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();//http返回码
     if(nHttpCode == 200)//成功
     {
+        qDebug()<<nHttpCode;
         emit signal_requestFinished(true,*m_pNetworkReply);//请求成功
     }
     else
     {
-        qDebug()<<nHttpCode<<endl;
+        qDebug()<<nHttpCode;
         emit signal_requestFinished(false,*m_pNetworkReply);//请求失败
     }
     m_pNetworkReply->deleteLater();

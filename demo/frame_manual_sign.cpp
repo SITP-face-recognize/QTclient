@@ -8,7 +8,7 @@ Frame_manual_sign::Frame_manual_sign(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->btn_submit->setEnabled(false);
-    ui->tb_id->setPlaceholderText(QString::fromUtf8("num"));
+    ui->tb_id->setPlaceholderText(QString("num"));
     ui->stu_name->setVisible(false);
 }
 

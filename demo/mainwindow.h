@@ -4,10 +4,11 @@
 #include <QMainWindow>
 #include <QTabWidget>
 #include <QTabBar>
-
 #include <QPushButton>
-#include "tabwidget.h"
+
 #include "mytitlebar.h"
+#include "tabwidget.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -21,23 +22,28 @@ public:
     ~MainWindow();
 
     QString teacher_id;//当前老师工号
-    QString course;//这里先假设课程为STRING类型，只是用来表示，待修改,和choosecoursedialog.h的中定义一样
+    int course_id;//选中的课程id
+	QString course_name;//选中的课程名
+	QString course_time;//选中的课程时间
+
     TabWidget * tabWidget ;
     //添加数据成员，当前课程
-
     QPushButton * change_course;
     QPushButton * change_login;
-
+	QWidget *view_course;
+	QLabel *cur_course;
     TitleBar* m_titleBar;
+
 
 private slots:
    void on_change_course_clicked();//按钮绑定的槽函数
    void on_change_login_clicked();
-   void on_tabwidget_currentChanged(int);//切换页面的槽函数
+   void on_tabwidget_currentChanged(int index);
 
 private:
     Ui::MainWindow *ui;
     void initTitleBar();
+    void paintEvent(QPaintEvent *e);
 };
 
 #endif // MAINWINDOW_H

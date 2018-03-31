@@ -17,5 +17,6 @@
         <file>assets/img/save.png</file>
         <file>assets/img/stumanage.png</file>
         <file>assets/img/transfer.png</file>
+        <file>assets/img/logo.png</file>
     </qresource>
 </RCC>

@@ -15,19 +15,8 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
-    <string notr="true">background:rgb(0, 169, 157)</string>
+    <string notr="true"/>
    </property>
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>581</width>
-      <height>361</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="mainLayout"/>
-   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

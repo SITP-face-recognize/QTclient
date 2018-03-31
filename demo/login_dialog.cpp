@@ -10,6 +10,8 @@ Login_Dialog::Login_Dialog(QWidget *parent) :
     ui(new Ui::Login_Dialog)
 {
     ui->setupUi(this);
+	QPixmap img(":/assets/img/logo.png");
+	ui->logo->setPixmap(img);
 }
 
 Login_Dialog::~Login_Dialog()
@@ -39,20 +41,6 @@ int check_teacher_id(QString id,QString password)
     if(id==NULL||password==NULL)
         return -1;
     return 1;
-}
-
-//请求结束
-int Login_Dialog::slot_requestFinished(bool bSuccess, const QString &strResult)
-{
-    if(bSuccess)
-    {
-       // ui->resultEdit->setPlainText(strResult); //纯文本显示
-    }
-    else
-    {
-        //ui->resultEdit->setPlainText(tr("请求失败！"));
-    }
-    return 0;
 }
 
 //点击登录

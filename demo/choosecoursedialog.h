@@ -1,9 +1,10 @@
 #ifndef CHOOSECOURSEDIALOG_H
 #define CHOOSECOURSEDIALOG_H
 
-#include <QNetworkReply>
 #include <QDialog>
 #include <QStandardItemModel>
+
+#include <httpop.h>
 
 namespace Ui {
 class ChooseCourseDialog;
@@ -19,13 +20,17 @@ public:
     void get_courselist(QString id);
     void show_courselist();
 
-    QStandardItemModel* course_model;
-    QString course;//这里先假设课程为STRING类型，只是用来表示，待修改
+    QStandardItemModel* course_model;//表格显示内容
+    QString teacher_name;//教师名字
+    int course_id;//选中的课程id
+	QString course_name;//选中的课程名
+	QString course_time;//选中的课程时间
 
 private slots:
     void on_btn_test_clicked();
     void get_teacher_info(QString id);
-    void slot_requestFinished(bool bSuccess, QNetworkReply &strResult);//结果处理
+    void slot_requestTeacherFinished(bool bSuccess, QNetworkReply &strResult);//结果处理
+    void slot_requestCourseFinished(bool bSuccess, QNetworkReply &strResult);//结果处理
 
 private:
     Ui::ChooseCourseDialog *ui;

@@ -4,6 +4,7 @@
 #include <QMessageBox>
 
 #define FirstTime 1
+#define Update 2
 
 Frame_stuManage::Frame_stuManage(QWidget *parent) :
     QWidget(parent),
@@ -48,7 +49,8 @@ void Frame_stuManage::on_btn_addFace_clicked()
         this->ui->addstu_id_LineEdit->setFocus();
     }
     else{
-        Frame_sign *fs=new Frame_sign(FirstTime);
+
+        Frame_sign *fs=new Frame_sign(FirstTime,id.toStdString());
         fs->setParent(ui->stu_add);
         fs->show();
 
@@ -59,7 +61,8 @@ void Frame_stuManage::on_btn_addFace_clicked()
 
 void Frame_stuManage::on_btn_updateFace_clicked()
 {
-    Frame_sign *fs=new Frame_sign(FirstTime);
+	QString id = ui->tb_id_update->text();
+    Frame_sign *fs=new Frame_sign(Update, id.toStdString());
     fs->setParent(ui->stu_update);
     fs->show();
 

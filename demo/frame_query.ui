@@ -6,42 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>366</width>
-    <height>291</height>
+    <width>493</width>
+    <height>320</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>331</width>
-     <height>201</height>
-    </rect>
-   </property>
-   <property name="columnCount">
-    <number>4</number>
-   </property>
-   <attribute name="horizontalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderCascadingSectionResizes">
-    <bool>false</bool>
-   </attribute>
-   <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>63</number>
-   </attribute>
-   <attribute name="verticalHeaderVisible">
-    <bool>false</bool>
-   </attribute>
-   <column/>
-   <column/>
-   <column/>
-   <column/>
-  </widget>
   <widget class="QPushButton" name="query_by_course">
    <property name="geometry">
     <rect>
@@ -55,17 +26,50 @@
     <string>本学期每次课出勤概览</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="query_by_stu">
+  <widget class="QTableView" name="courseSign">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>10</x>
+     <y>50</y>
+     <width>211</width>
+     <height>231</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="signInfo">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>50</y>
+     <width>251</width>
+     <height>231</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="signedNum">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
      <y>10</y>
-     <width>161</width>
-     <height>31</height>
+     <width>101</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>本学期所有学生出勤概览</string>
+    <string>签到人数:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="unSignedNum">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>30</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>未签到人数:</string>
    </property>
   </widget>
  </widget>
