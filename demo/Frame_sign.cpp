@@ -123,10 +123,12 @@ void Frame_sign::sign_first_over()
 	//this->capture.release();
     this->camera->stop();
   //  ui->ImageCapture->clear();
+		
 	if (flag == 1) {
-		preprocessing();
-		csv();
-		mmodel_training();
+		//预处理和训练 
+		//preprocessing();
+		//csv();
+		//mmodel_training();
 	}
 	else {
 
@@ -155,12 +157,12 @@ int Frame_sign::faceRecognition()
 	Ptr<FaceRecognizer> modelLBP = LBPHFaceRecognizer::create();
 	//Ptr<FaceRecognizer> modelFisher = FisherFaceRecognizer::create();
 	//modelPCA->read("MyFacePCAModel.xml");
-	modelLBP->read("MyFaceLBPHModel.xml");
+	modelLBP->read("MyFaceLBPHModel.xml"); 
 	//modelFisher->read("MyFaceFisherModel.xml");
 	while (1)
 	{
 		capture >> frame;
-		char key = waitKey(1000);
+		char key = waitKey(1);
 		vector<Rect> faces(0);
 		//white_balance(frame, gray);
 		cvtColor(frame, gray, CV_BGR2GRAY);
