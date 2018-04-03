@@ -94,7 +94,7 @@ public:
         btn_start->setGeometry(QRect(20, 10, 71, 61));
         label = new QLabel(Frame_sign);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(440, 330, 54, 12));
+        label->setGeometry(QRect(490, 330, 54, 12));
 
         retranslateUi(Frame_sign);
 
@@ -110,7 +110,7 @@ public:
         tips->setText(QApplication::translate("Frame_sign", "\347\202\271\345\207\273\345\274\200\345\247\213\345\275\225\345\205\245", nullptr));
         buttonQuit->setText(QApplication::translate("Frame_sign", "\347\273\223\346\235\237\347\255\276\345\210\260", nullptr));
         btn_start->setText(QApplication::translate("Frame_sign", "\345\274\200\345\247\213\347\255\276\345\210\260", nullptr));
-        label->setText(QApplication::translate("Frame_sign", "TextLabel", nullptr));
+        label->setText(QString());
     } // retranslateUi
 
 };

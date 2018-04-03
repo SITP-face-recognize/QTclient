@@ -126,9 +126,9 @@ void Frame_sign::sign_first_over()
 		
 	if (flag == 1) {
 		//预处理和训练 
-		//preprocessing();
-		//csv();
-		//mmodel_training();
+		/*preprocessing();
+		csv();
+		mmodel_training();*/
 	}
 	else {
 
@@ -203,7 +203,7 @@ int Frame_sign::faceRecognition()
 		//cout << "LBP" << predictPCA << "   置信度:" << confidence << endl;
 		//cout << "FSH" << predictPCA << "   置信度:" << confidence2 << endl;
 
-		putText(frame, to_string(predictLBP)+"turn up", text_lb, FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 255));
+		putText(frame, to_string(predictLBP), text_lb, FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 255));
 		stu_signed_id.push_back(to_string(predictLBP));
 		//qDebug() << predictLBP;
 		//emit sign_successed(to_string(predictLBP));
@@ -222,9 +222,11 @@ int Frame_sign::faceRecognition()
 
 	int l = stu_signed_id.size();
 	for (auto id_iterator = stu_signed_id.begin(); id_iterator != stu_signed_id.end(); id_iterator++)
-		info += QString::fromStdString((*id_iterator))+"\n";
+	{
+		if(*id_iterator!="0")
+		info += QString::fromStdString((*id_iterator)) + "\n";
+	}
 	ui->tip_info->setText(info);
-
 }
 
 //捕捉照片

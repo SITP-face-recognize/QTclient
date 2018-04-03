@@ -114,7 +114,7 @@ void Frame_query::slot_requestSignInfoFinished(bool bSuccess, QNetworkReply &rep
                 }
                 if(object.contains("nonsignNum")){
                     QJsonValue value = object.value("nonsignNum");
-                    QString t = tr("未签到人数: ");
+                    QString t = tr("缺勤人数: ");
                     ui->unSignedNum->setText(t+QString::number(value.toInt(),10));
                 }
                 if(object.contains("signList")){

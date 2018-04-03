@@ -23,12 +23,12 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <property name="iconSize">
     <size>
-     <width>20</width>
-     <height>20</height>
+     <width>18</width>
+     <height>18</height>
     </size>
    </property>
    <widget class="QWidget" name="stu_add">
@@ -74,7 +74,7 @@
        <string>请输入学号和姓名</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -138,7 +138,7 @@
        <string>更新照片</string>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -178,8 +178,8 @@
    </widget>
    <widget class="QWidget" name="stu_delete">
     <attribute name="icon">
-     <iconset resource="resource.qrc">
-      <normaloff>:/assets/img/finalNode.png</normaloff>:/assets/img/finalNode.png</iconset>
+     <iconset>
+      <normaloff>assets/img/delete.png</normaloff>assets/img/delete.png</iconset>
     </attribute>
     <attribute name="title">
      <string>删除学生</string>
@@ -197,7 +197,7 @@
       <string>删除</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>80</x>
