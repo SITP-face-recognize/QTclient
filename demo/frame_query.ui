@@ -41,7 +41,7 @@
     <rect>
      <x>230</x>
      <y>50</y>
-     <width>251</width>
+     <width>221</width>
      <height>231</height>
     </rect>
    </property>
@@ -69,7 +69,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>未签到人数:</string>
+    <string>缺勤人数:</string>
    </property>
   </widget>
  </widget>

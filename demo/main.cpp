@@ -5,7 +5,6 @@
 #include <QApplication>
 int main(int argc, char *argv[])
 {
-
     QApplication a(argc, argv);
 
     QFile f(":/assets/StyleSheet.css");
@@ -15,6 +14,7 @@ int main(int argc, char *argv[])
     }
 
     Login_Dialog ld;
+
     if(ld.exec()==QDialog::Accepted)
        {
             MainWindow w(ld.teacher_id);

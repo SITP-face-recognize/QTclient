@@ -1,6 +1,7 @@
 #include "choosecoursedialog.h"
 #include "ui_choosecoursedialog.h"
 #include "httpop.h"
+#include "global.h"
 
 #include <QStandardItemModel>
 #include <QDebug>
@@ -15,13 +16,14 @@ ChooseCourseDialog::ChooseCourseDialog(QString id,QWidget *parent) :
 
     this->get_teacher_info(id);
     this->get_courselist(id);//上面两个操作可能会有时间上的延后,所以把显示操作放在Json数据处理完后执行
+	
 
     ui->noChoiceWarning->setVisible(false);
 }
 
 ChooseCourseDialog::~ChooseCourseDialog()
 {
-    delete ui;//这里删掉后还要返回登录窗口或者关闭主窗口
+    delete ui;
 }
 
 void ChooseCourseDialog::get_courselist(QString id)
@@ -36,9 +38,10 @@ void ChooseCourseDialog::get_courselist(QString id)
             this,SLOT(slot_requestCourseFinished(bool,QNetworkReply&)));
 
     qDebug() << strUrl << endl;
-    ho->sendRequest(strUrl,"get");
+    ho->getRequest(strUrl,"get");
 }
 
+//获取老师信息
 void ChooseCourseDialog::get_teacher_info(QString id)
 {
     HttpOp* ho = new HttpOp();
@@ -50,13 +53,50 @@ void ChooseCourseDialog::get_teacher_info(QString id)
             this,SLOT(slot_requestTeacherFinished(bool,QNetworkReply&)));//http请求结束信号
 
     qDebug() << strUrl << endl;
-    ho->sendRequest(strUrl,"get");
+    ho->getRequest(strUrl,"get");
 
     qDebug()<<teacher_name;//奇怪的问题，到了这里slot_requestTeacherFinished还没有执行
 }
 
+//根据课程id获取学生列表
+void ChooseCourseDialog::get_studentlist(int course_id)
+{
+	HttpOp* ho = new HttpOp();
+	//设置URL
+	QString strUrl = ho->reBaseUrl();
+	strUrl += ("/courseStudent/" + QString::number(course_id));
+
+	connect(ho, SIGNAL(signal_requestFinished(bool, QNetworkReply&)), //http请求结束信号
+		this, SLOT(slot_requestStudentFinished(bool, QNetworkReply&)));
+
+	qDebug() << strUrl << endl;
+	ho->getRequest(strUrl, "get");
+
+}
+
+//显示课程列表
+void ChooseCourseDialog::show_courselist()
+{
+    QStringList labels = QObject::trUtf8("课程ID,课程名称,上课时间").simplified().split(",");
+    course_model->setHorizontalHeaderLabels(labels);
+
+    ui->tableView->setModel(course_model);
+    ui->tableView->setShowGrid(false);
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);//内容不可编辑
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::
+                                                            ResizeToContents);//设置列宽随文本增长
+    ui->tableView->horizontalHeader()->setResizeContentsPrecision(QHeaderView::Fixed);//设置鼠标不可改变列宽
+    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);//设置只能选择一行，不能多行选中
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);//单击选择一行
+    ui->tableView->setAlternatingRowColors(true);//设置隔一行变一颜色，即：一灰一白
+    QHeaderView *header = ui->tableView->horizontalHeader();
+    header->setStretchLastSection(true);
+    ui->tableView->show();
+}
+
 void ChooseCourseDialog::slot_requestTeacherFinished(bool bSuccess, QNetworkReply &reply)
 {
+qDebug() << "bSuccess:" << bSuccess;
     if(bSuccess)
     {
         qDebug() <<"request finished"<< reply.Text;
@@ -69,6 +109,7 @@ void ChooseCourseDialog::slot_requestTeacherFinished(bool bSuccess, QNetworkRepl
                 {
                     QJsonObject object = jsonDocument.object();
                     QJsonValue value = object.value("name");//取出key为name的值
+					qDebug() << value.toString();
                     //判断是否是string类型
                     qDebug()<<"value:"<<value.isString();
                     if (value.isString())
@@ -137,6 +178,45 @@ void ChooseCourseDialog::slot_requestCourseFinished(bool bSuccess, QNetworkReply
     }
 }
 
+void ChooseCourseDialog::slot_requestStudentFinished(bool bSuccess, QNetworkReply &reply)
+{
+	if (bSuccess)
+	{
+		Student_List->clear();
+		QJsonParseError p_error;
+		QJsonDocument jsonDocument = QJsonDocument::fromJson(reply.readAll(), &p_error);
+
+		if (p_error.error == QJsonParseError::NoError) {
+			if (!(jsonDocument.isNull() || jsonDocument.isEmpty())) {
+				if (jsonDocument.isObject())
+				{
+					QJsonObject object = jsonDocument.object();
+					if (object.contains("student")) {
+						QJsonValue valueArray = object.value("student");
+						if (valueArray.isArray())//判断类型是否为array，并且将array遍历出来
+						{
+							QJsonArray array = valueArray.toArray();
+							QStandardItem *item;
+							for (int i = 0; i<array.size(); i++)
+							{
+								QJsonValue value = array[i];
+								Student one(value["id"].toInt(), value["stuId"].toString(), value["name"].toString());
+								Student_List->push_back(one);
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+	else
+	{
+		qDebug() << "failed for student_list";
+	}
+}
+
+//选定课程并提交后 获取学生列表
 void ChooseCourseDialog::on_btn_test_clicked()
 {
     int row_selected = ui->tableView->currentIndex().row();//获取选中的行
@@ -149,33 +229,26 @@ void ChooseCourseDialog::on_btn_test_clicked()
     else
     {
         //根据row进行网络请求...,似乎又不需要
+
     }
 
+	Student_List->clear();
     course_id = course_model->item(row_selected,0)->text().toInt();//course=course_id[row_selected]
 	course_name = course_model->item(row_selected, 1)->text();
 	course_time= course_model->item(row_selected, 2)->text();
+	
+	load_view = new QLabel();
+	load_view->move(100, 150);
+	QMovie *movie = new QMovie(":/assets/img/load.gif");
+	load_view->setMovie(movie);
+	movie->start();
+
+	Course_Id = course_id;
+	qDebug()<<Course_Id;
+	//获取选中的课的学生列表
+	this->get_studentlist(course_id);
     accept();
 }
-
-void ChooseCourseDialog::show_courselist()
-{
-    QStringList labels = QObject::trUtf8("课程ID,课程名称,上课时间").simplified().split(",");
-    course_model->setHorizontalHeaderLabels(labels);
-
-    ui->tableView->setModel(course_model);
-    ui->tableView->setShowGrid(false);
-    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);//内容不可编辑
-    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::
-                                                            ResizeToContents);//设置列宽随文本增长
-    ui->tableView->horizontalHeader()->setResizeContentsPrecision(QHeaderView::Fixed);//设置鼠标不可改变列宽
-    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);//设置只能选择一行，不能多行选中
-    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);//单击选择一行
-    ui->tableView->setAlternatingRowColors(true);//设置隔一行变一颜色，即：一灰一白
-    QHeaderView *header = ui->tableView->horizontalHeader();
-    header->setStretchLastSection(true);
-    ui->tableView->show();
-}
-
 
 
 

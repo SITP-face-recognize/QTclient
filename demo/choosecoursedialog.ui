@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>人脸识别签到-选择课程</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>assets/img/face_sign_icon.png</normaloff>assets/img/face_sign_icon.png</iconset>
+  </property>
   <widget class="QGroupBox" name="view_choose_course">
    <property name="geometry">
     <rect>

@@ -5,9 +5,12 @@
 #include <QTabWidget>
 #include <QTabBar>
 #include <QPushButton>
+#include <QStandardItemModel>
 
 #include "mytitlebar.h"
 #include "tabwidget.h"
+#include "httpop.h"
+#include "global.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +28,7 @@ public:
     int course_id;//选中的课程id
 	QString course_name;//选中的课程名
 	QString course_time;//选中的课程时间
+	
 
     TabWidget * tabWidget ;
     //添加数据成员，当前课程
@@ -33,7 +37,6 @@ public:
 	QWidget *view_course;
 	QLabel *cur_course;
     TitleBar* m_titleBar;
-
 
 private slots:
    void on_change_course_clicked();//按钮绑定的槽函数

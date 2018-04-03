@@ -8,6 +8,7 @@
 #include <QString>
 
 
+#include "global.h"
 #include <httpop.h>
 
 namespace Ui {

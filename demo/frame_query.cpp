@@ -31,7 +31,7 @@ void Frame_query::get_signList(int course_id) //根据课程id获取签到列表
             this,SLOT(slot_requestCourseSignFinished(bool,QNetworkReply&)));
 
     qDebug() << strUrl << endl;
-    ho->sendRequest(strUrl,"get");
+    ho->getRequest(strUrl,"get");
 }
 
 void Frame_query::get_signInfo(const QModelIndex & id)
@@ -45,7 +45,7 @@ void Frame_query::get_signInfo(const QModelIndex & id)
             this,SLOT(slot_requestSignInfoFinished(bool,QNetworkReply&)));
 
     qDebug() << strUrl << endl;
-    ho->sendRequest(strUrl,"get");
+    ho->getRequest(strUrl,"get");
 }
 
 void Frame_query::queryAll_byStudent()
@@ -114,7 +114,7 @@ void Frame_query::slot_requestSignInfoFinished(bool bSuccess, QNetworkReply &rep
                 }
                 if(object.contains("nonsignNum")){
                     QJsonValue value = object.value("nonsignNum");
-                    QString t = tr("未签到人数: ");
+                    QString t = tr("缺勤人数: ");
                     ui->unSignedNum->setText(t+QString::number(value.toInt(),10));
                 }
                 if(object.contains("signList")){

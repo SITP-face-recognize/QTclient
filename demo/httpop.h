@@ -15,7 +15,7 @@
 #include <QJsonObject>
 #include <QJsonValue>
 
-
+extern QString token;//定义在login_dialog.h里
 
 class HttpOp : public QObject
 {
@@ -23,7 +23,8 @@ class HttpOp : public QObject
 public:
     explicit HttpOp(QObject *parent = 0);
     QString reBaseUrl();
-    void sendRequest(const QString& strUrl, QString op);//根据url发起http请求
+    void getRequest(const QString& strUrl, QString op);//根据url发起http请求
+	void postRequest(const QString& strUrl, QByteArray post_data);
     QString OPmode;//GET,POST,HEAD,PUT...
 
 

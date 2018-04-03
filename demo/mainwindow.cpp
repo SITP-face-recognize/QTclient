@@ -1,3 +1,4 @@
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -15,7 +16,7 @@
 #include <QtUiTools\QUiLoader>
 #include <QPushButton>
 #include <QLabel>
-#include <QSizePolicy>
+#include <QTextCodec>
 #define shadow_width 6
 
 MainWindow::MainWindow(QString teacherId,QWidget *parent) :
@@ -23,6 +24,7 @@ MainWindow::MainWindow(QString teacherId,QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	QTextCodec::setCodecForLocale(QTextCodec::codecForName("GBK"));
 
     // FramelessWindowHint属性设置窗口去除边框;
     // WindowMinimizeButtonHint 属性设置在窗口最小化时，点击任务栏窗口可以显示出原窗口;
@@ -52,8 +54,10 @@ MainWindow::MainWindow(QString teacherId,QWidget *parent) :
     if(cc_dialog->exec()==QDialog::Accepted)
     {
         this->course_id=cc_dialog->course_id;
+		Course_Id = this->course_id;
 		this->course_name = cc_dialog->course_name;
 		this->course_time = cc_dialog->course_time;
+		
         tabWidget->show();
         qDebug()<<course_id;
     }
@@ -140,7 +144,6 @@ void MainWindow::paintEvent(QPaintEvent *e)
 }
 
 
-
 void MainWindow::on_change_course_clicked()
 {   
     this->hide();
@@ -151,9 +154,10 @@ void MainWindow::on_change_course_clicked()
 		this->course_name = cc_dialog->course_name;
 		this->course_time = cc_dialog->course_time;
 		this->cur_course->setText("当前课程:\n" + this->course_name + "\n" + this->course_time);
+		this->tabWidget->setCurrentIndex(0);
+		this->show();
     }
-
-    this->show();
+	else this->close();
 }
 
 void MainWindow::on_change_login_clicked()
@@ -170,11 +174,14 @@ void MainWindow::on_change_login_clicked()
 			this->course_name = cc_dialog->course_name;
 			this->course_time = cc_dialog->course_time;
 			this->cur_course->setText("当前课程:\n" + this->course_name + "\n" + this->course_time);
+			this->tabWidget->setCurrentIndex(0);
+			this->show();
         }
+		else this->close();
 
     }
     //this->tabWidget->show();
-    this->show();
+  
 }
 
 void MainWindow::on_tabwidget_currentChanged(int index)

@@ -37,6 +37,9 @@ public:
         if (ChooseCourseDialog->objectName().isEmpty())
             ChooseCourseDialog->setObjectName(QStringLiteral("ChooseCourseDialog"));
         ChooseCourseDialog->resize(310, 400);
+        QIcon icon;
+        icon.addFile(QStringLiteral("assets/img/face_sign_icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        ChooseCourseDialog->setWindowIcon(icon);
         view_choose_course = new QGroupBox(ChooseCourseDialog);
         view_choose_course->setObjectName(QStringLiteral("view_choose_course"));
         view_choose_course->setGeometry(QRect(10, 30, 281, 321));

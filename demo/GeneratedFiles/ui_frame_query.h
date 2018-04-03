@@ -43,7 +43,7 @@ public:
         courseSign->setGeometry(QRect(10, 50, 211, 231));
         signInfo = new QTableView(Frame_query);
         signInfo->setObjectName(QStringLiteral("signInfo"));
-        signInfo->setGeometry(QRect(230, 50, 251, 231));
+        signInfo->setGeometry(QRect(230, 50, 221, 231));
         signedNum = new QLabel(Frame_query);
         signedNum->setObjectName(QStringLiteral("signedNum"));
         signedNum->setGeometry(QRect(230, 10, 101, 16));
@@ -61,7 +61,7 @@ public:
         Frame_query->setWindowTitle(QApplication::translate("Frame_query", "Form", nullptr));
         query_by_course->setText(QApplication::translate("Frame_query", "\346\234\254\345\255\246\346\234\237\346\257\217\346\254\241\350\257\276\345\207\272\345\213\244\346\246\202\350\247\210", nullptr));
         signedNum->setText(QApplication::translate("Frame_query", "\347\255\276\345\210\260\344\272\272\346\225\260:", nullptr));
-        unSignedNum->setText(QApplication::translate("Frame_query", "\346\234\252\347\255\276\345\210\260\344\272\272\346\225\260:", nullptr));
+        unSignedNum->setText(QApplication::translate("Frame_query", "\347\274\272\345\213\244\344\272\272\346\225\260:", nullptr));
     } // retranslateUi
 
 };

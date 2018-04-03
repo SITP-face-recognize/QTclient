@@ -2,6 +2,7 @@
 #define FRAME_STUMANAGE_H
 
 #include <QWidget>
+#include "global.h"
 
 namespace Ui {
 class Frame_stuManage;

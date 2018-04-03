@@ -2,6 +2,7 @@
 #define FRAME_MANUAL_SIGN_H
 
 #include <QWidget>
+#include "global.h"
 
 namespace Ui {
 class Frame_manual_sign;

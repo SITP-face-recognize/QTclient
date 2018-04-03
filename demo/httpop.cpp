@@ -18,28 +18,32 @@ QString HttpOp::reBaseUrl()
     return BaseUrl;
 }
 
-void HttpOp::sendRequest(const QString &strUrl, QString op)
+void HttpOp::getRequest(const QString &strUrl, QString op)
 {
     m_strUrl = strUrl;
     QNetworkRequest netRequest;
-    netRequest.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
+    netRequest.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");	
     netRequest.setUrl(QUrl(strUrl)); //地址信息
 
-    if(op == "get")
-    {
-        m_pNetworkReply = m_pNetworkManager->get(netRequest); //发起get请求
-    }
-    else if(op == "post")
-    {
-        QString strBody; //http body部分，可封装参数信息
-        //不知道写点啥
-
-        QByteArray contentByteArray = strBody.toLatin1();//转成二进制
-        m_pNetworkReply = m_pNetworkManager->post(netRequest,contentByteArray);
-    }
-
+    m_pNetworkReply = m_pNetworkManager->get(netRequest); //发起get请求
+    
     connect(m_pNetworkReply,SIGNAL(finished()),this,SLOT(slot_requestFinished())); //请求完成信号
     m_pTimer->start(nHTTP_TIME);
+}
+
+void HttpOp::postRequest(const QString & strUrl, QByteArray post_data)
+{
+	m_strUrl = strUrl;
+	QNetworkRequest netRequest;
+	netRequest.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+	//netRequest.setRawHeader(QByteArray("Authorition: Token "), token.toUtf8());//token
+
+	netRequest.setHeader(QNetworkRequest::ContentLengthHeader, post_data.length());
+	netRequest.setUrl(QUrl(strUrl)); //地址信息
+
+	m_pNetworkReply = m_pNetworkManager->post(netRequest, post_data);
+	connect(m_pNetworkReply, SIGNAL(finished()), this, SLOT(slot_requestFinished())); //请求完成信号
+	m_pTimer->start(nHTTP_TIME);
 }
 
 //请求结束
@@ -47,16 +51,12 @@ void HttpOp::slot_requestFinished()
 {
     m_pTimer->stop();//关闭定时器
     int nHttpCode = m_pNetworkReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();//http返回码
-    if(nHttpCode == 200)//成功
-    {
-        qDebug()<<nHttpCode;
+    qDebug() << "HttpCode" <<nHttpCode;
+	if(nHttpCode == 200)//成功     
         emit signal_requestFinished(true,*m_pNetworkReply);//请求成功
-    }
     else
-    {
-        qDebug()<<nHttpCode;
         emit signal_requestFinished(false,*m_pNetworkReply);//请求失败
-    }
+    
     m_pNetworkReply->deleteLater();
     this->deleteLater(); //释放内存
 }

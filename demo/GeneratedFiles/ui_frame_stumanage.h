@@ -31,7 +31,7 @@ public:
     QWidget *view_add_input;
     QPushButton *btn_addFace;
     QLabel *tip;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *addstu_id_Label;
     QLineEdit *addstu_id_LineEdit;
@@ -40,7 +40,7 @@ public:
     QWidget *stu_update;
     QWidget *view_update_input;
     QPushButton *btn_updateFace;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QGridLayout *gridLayout_2;
     QLineEdit *tb_id_update;
     QLabel *upstu_name_Label;
@@ -48,7 +48,7 @@ public:
     QLabel *tip_name_update;
     QWidget *stu_delete;
     QPushButton *btn_delete;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QGridLayout *gridLayout_3;
     QLabel *destu_id_Label;
     QLineEdit *tb_id_delete;
@@ -63,7 +63,7 @@ public:
         tabWidget = new QTabWidget(Frame_stuManage);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setGeometry(QRect(0, 10, 461, 351));
-        tabWidget->setIconSize(QSize(20, 20));
+        tabWidget->setIconSize(QSize(18, 18));
         stu_add = new QWidget();
         stu_add->setObjectName(QStringLiteral("stu_add"));
         view_add_input = new QWidget(stu_add);
@@ -75,28 +75,28 @@ public:
         tip = new QLabel(view_add_input);
         tip->setObjectName(QStringLiteral("tip"));
         tip->setGeometry(QRect(50, 40, 111, 21));
-        widget = new QWidget(view_add_input);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 70, 181, 71));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(view_add_input);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 70, 181, 71));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        addstu_id_Label = new QLabel(widget);
+        addstu_id_Label = new QLabel(layoutWidget);
         addstu_id_Label->setObjectName(QStringLiteral("addstu_id_Label"));
 
         gridLayout->addWidget(addstu_id_Label, 0, 0, 1, 1);
 
-        addstu_id_LineEdit = new QLineEdit(widget);
+        addstu_id_LineEdit = new QLineEdit(layoutWidget);
         addstu_id_LineEdit->setObjectName(QStringLiteral("addstu_id_LineEdit"));
 
         gridLayout->addWidget(addstu_id_LineEdit, 0, 1, 1, 1);
 
-        addstu_name_Label = new QLabel(widget);
+        addstu_name_Label = new QLabel(layoutWidget);
         addstu_name_Label->setObjectName(QStringLiteral("addstu_name_Label"));
 
         gridLayout->addWidget(addstu_name_Label, 1, 0, 1, 1);
 
-        addstu_name_LineEdit = new QLineEdit(widget);
+        addstu_name_LineEdit = new QLineEdit(layoutWidget);
         addstu_name_LineEdit->setObjectName(QStringLiteral("addstu_name_LineEdit"));
 
         gridLayout->addWidget(addstu_name_LineEdit, 1, 1, 1, 1);
@@ -112,28 +112,28 @@ public:
         btn_updateFace = new QPushButton(view_update_input);
         btn_updateFace->setObjectName(QStringLiteral("btn_updateFace"));
         btn_updateFace->setGeometry(QRect(90, 120, 75, 31));
-        widget1 = new QWidget(view_update_input);
-        widget1->setObjectName(QStringLiteral("widget1"));
-        widget1->setGeometry(QRect(30, 50, 171, 51));
-        gridLayout_2 = new QGridLayout(widget1);
+        layoutWidget1 = new QWidget(view_update_input);
+        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(30, 50, 171, 51));
+        gridLayout_2 = new QGridLayout(layoutWidget1);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        tb_id_update = new QLineEdit(widget1);
+        tb_id_update = new QLineEdit(layoutWidget1);
         tb_id_update->setObjectName(QStringLiteral("tb_id_update"));
 
         gridLayout_2->addWidget(tb_id_update, 0, 1, 1, 1);
 
-        upstu_name_Label = new QLabel(widget1);
+        upstu_name_Label = new QLabel(layoutWidget1);
         upstu_name_Label->setObjectName(QStringLiteral("upstu_name_Label"));
 
         gridLayout_2->addWidget(upstu_name_Label, 1, 0, 1, 1);
 
-        upstu_id_Label = new QLabel(widget1);
+        upstu_id_Label = new QLabel(layoutWidget1);
         upstu_id_Label->setObjectName(QStringLiteral("upstu_id_Label"));
 
         gridLayout_2->addWidget(upstu_id_Label, 0, 0, 1, 1);
 
-        tip_name_update = new QLabel(widget1);
+        tip_name_update = new QLabel(layoutWidget1);
         tip_name_update->setObjectName(QStringLiteral("tip_name_update"));
 
         gridLayout_2->addWidget(tip_name_update, 1, 1, 1, 1);
@@ -146,40 +146,40 @@ public:
         btn_delete = new QPushButton(stu_delete);
         btn_delete->setObjectName(QStringLiteral("btn_delete"));
         btn_delete->setGeometry(QRect(140, 170, 75, 31));
-        widget2 = new QWidget(stu_delete);
-        widget2->setObjectName(QStringLiteral("widget2"));
-        widget2->setGeometry(QRect(80, 100, 171, 51));
-        gridLayout_3 = new QGridLayout(widget2);
+        layoutWidget2 = new QWidget(stu_delete);
+        layoutWidget2->setObjectName(QStringLiteral("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(80, 100, 171, 51));
+        gridLayout_3 = new QGridLayout(layoutWidget2);
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        destu_id_Label = new QLabel(widget2);
+        destu_id_Label = new QLabel(layoutWidget2);
         destu_id_Label->setObjectName(QStringLiteral("destu_id_Label"));
         destu_id_Label->setAlignment(Qt::AlignCenter);
 
         gridLayout_3->addWidget(destu_id_Label, 0, 0, 1, 1);
 
-        tb_id_delete = new QLineEdit(widget2);
+        tb_id_delete = new QLineEdit(layoutWidget2);
         tb_id_delete->setObjectName(QStringLiteral("tb_id_delete"));
 
         gridLayout_3->addWidget(tb_id_delete, 0, 1, 1, 1);
 
-        destu_name_Label = new QLabel(widget2);
+        destu_name_Label = new QLabel(layoutWidget2);
         destu_name_Label->setObjectName(QStringLiteral("destu_name_Label"));
 
         gridLayout_3->addWidget(destu_name_Label, 1, 0, 1, 1);
 
-        tip_name_delete = new QLabel(widget2);
+        tip_name_delete = new QLabel(layoutWidget2);
         tip_name_delete->setObjectName(QStringLiteral("tip_name_delete"));
 
         gridLayout_3->addWidget(tip_name_delete, 1, 1, 1, 1);
 
         QIcon icon2;
-        icon2.addFile(QStringLiteral(":/assets/img/finalNode.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QStringLiteral("assets/img/delete.png"), QSize(), QIcon::Normal, QIcon::Off);
         tabWidget->addTab(stu_delete, icon2, QString());
 
         retranslateUi(Frame_stuManage);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Frame_stuManage);

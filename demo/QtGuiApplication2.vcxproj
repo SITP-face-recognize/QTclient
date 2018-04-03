@@ -120,6 +120,7 @@
     <ClCompile Include="frame_query.cpp" />
     <ClCompile Include="Frame_sign.cpp" />
     <ClCompile Include="frame_stumanage.cpp" />
+    <ClCompile Include="global.cpp" />
     <ClCompile Include="httpop.cpp" />
     <ClCompile Include="login_dialog.cpp" />
     <ClCompile Include="main.cpp" />
@@ -143,6 +144,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="face_recongnization.h" />
+    <ClInclude Include="global.h" />
     <ClInclude Include="tabstyle.h" />
     <ClInclude Include="tabwidget.h" />
     <QtMoc Include="mytitlebar.h" />

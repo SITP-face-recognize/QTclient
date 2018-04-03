@@ -1,6 +1,6 @@
-﻿  Frame_sign.cpp
-Frame_sign.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-f:\vs_projects\qtguiapplication2\frame_sign.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-f:\vs_projects\qtguiapplication2\frame_sign.cpp(226): warning C4715: “Frame_sign::faceRecognition”: 不是所有的控件路径都返回值
+﻿  choosecoursedialog.cpp
+choosecoursedialog.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+f:\vs_projects\qtguiapplication2\choosecoursedialog.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+F:\VS_projects\QtGuiApplication2\httpop.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   QtGuiApplication2.vcxproj -> F:\VS_projects\QtGuiApplication2\x64\Debug\QtGuiApplication2.exe
   QtGuiApplication2.vcxproj -> F:\VS_projects\QtGuiApplication2\x64\Debug\QtGuiApplication2.pdb (Full PDB)
