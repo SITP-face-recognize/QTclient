@@ -23,7 +23,11 @@
     </rect>
    </property>
    <property name="currentIndex">
+<<<<<<< HEAD
     <number>1</number>
+=======
+    <number>2</number>
+>>>>>>> master
    </property>
    <property name="iconSize">
     <size>

@@ -179,7 +179,11 @@ public:
 
         retranslateUi(Frame_stuManage);
 
+<<<<<<< HEAD
         tabWidget->setCurrentIndex(1);
+=======
+        tabWidget->setCurrentIndex(2);
+>>>>>>> master
 
 
         QMetaObject::connectSlotsByName(Frame_stuManage);

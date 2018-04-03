@@ -248,7 +248,11 @@ int Frame_sign::faceRecognition()
 		//cout << "FSH" << predictPCA << "   置信度:" << confidence2 << endl;
 
 		putText(frame, to_string(predictLBP), text_lb, FONT_HERSHEY_COMPLEX, 1, Scalar(0, 0, 255));
+<<<<<<< HEAD
 		stu_signed_stuId.push_back(to_string(predictLBP));
+=======
+		stu_signed_id.push_back(to_string(predictLBP));
+>>>>>>> master
 		//qDebug() << predictLBP;
 		//emit sign_successed(to_string(predictLBP));
 		imshow("face", frame);
@@ -264,6 +268,7 @@ int Frame_sign::faceRecognition()
 	sort(stu_signed_stuId.begin(), stu_signed_stuId.end());
 	stu_signed_stuId.erase(unique(stu_signed_stuId.begin(), stu_signed_stuId.end()), stu_signed_stuId.end());
 
+<<<<<<< HEAD
 	int l = stu_signed_stuId.size();
 	for (auto id_iterator = stu_signed_stuId.begin(); id_iterator != stu_signed_stuId.end(); id_iterator++)
 	{
@@ -314,6 +319,15 @@ void Frame_sign::detailSign()
 
 		ho->postRequest(strUrl, post_data);//发送请求
 	}
+=======
+	int l = stu_signed_id.size();
+	for (auto id_iterator = stu_signed_id.begin(); id_iterator != stu_signed_id.end(); id_iterator++)
+	{
+		if(*id_iterator!="0")
+		info += QString::fromStdString((*id_iterator)) + "\n";
+	}
+	ui->tip_info->setText(info);
+>>>>>>> master
 }
 
 //捕捉照片

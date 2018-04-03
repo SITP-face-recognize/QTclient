@@ -17,6 +17,9 @@
         <file>assets/img/face_sign_icon.png</file>
         <file>assets/img/delete.png</file>
         <file>assets/img/btn_max.png</file>
+<<<<<<< HEAD
         <file>assets/img/load.gif</file>
+=======
+>>>>>>> master
     </qresource>
 </RCC>
